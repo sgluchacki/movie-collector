@@ -13,13 +13,23 @@
 </head>
 <body>
     <header>
-        NAVBAR WILL LIVE HERE
+        <nav class="blue-grey darken-3">
+            <div class="nav-wrapper">
+                <ul>
+                    <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Movie Collection</a></li>
+                </ul>
+                <ul class="right">
+                    <!-- changes below -->
+                    <li><a href="{% url 'movie_list' %}">See Movies</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
     <main class="container">
         {% block content %}
         {% endblock %}
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer blue-grey darken-3">
         <div class="right">CHECK IT OUT! A FOOTER!!</div>
     </footer>
 </body>
