@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Movie List</h1>
+
+{% for movie in object_list %}
+  {% comment %} <a href="{% url 'authors_detail_url_nickname' author.id %}"> {% endcomment %}
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ movie.name }}</span>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
