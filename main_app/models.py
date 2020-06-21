@@ -5,7 +5,7 @@ import datetime
 
 # Create your models here.
 class Movie(models.Model):
-    title = models.CharField(max_length=100),
+    title = models.CharField(max_length=100)
     year_of_release = models.IntegerField(default=datetime.date.today().year)
     art_image_url = models.URLField(max_length=2000)
     
