@@ -40,3 +40,8 @@ class MovieCreate(CreateView):
 class MovieUpdate(UpdateView):
     model = Movie
     fields = '__all__'
+    
+    
+class MovieDelete(DeleteView):
+    model = Movie
+    success_url = '/movies/'

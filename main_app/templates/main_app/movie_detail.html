@@ -12,7 +12,7 @@
       </div>
       <div class="card-action">
         <a href="{% url 'movie_update' movie.id %}">Edit</a>
-        {% comment %} <a href="{% url 'movies_delete_url_nickname' movie.id %}">Delete</a> {% endcomment %}
+        <a href="{% url 'movie_delete' movie.id %}">Delete</a>
       </div>
     </div>
   </div>
