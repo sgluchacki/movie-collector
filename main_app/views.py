@@ -19,10 +19,9 @@ class MovieList(ListView):
 
 class MovieDetail(DetailView):
     model = Movie
-    pk_url_kwarg = 'movie_id'
+    # pk_url_kwarg = 'movie_id'
     
-    def get_context_data(self, movie_id=movie_id):
-        movie = Movie.objects.get(id=movie_id)
-        context = super().get_context_data()
-        context['title'] = movie.title + ' Details'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = context['movie'].title + ' Details'
         return context
