@@ -14,4 +14,10 @@ class Movie(models.Model):
     
     def get_absolute_url(self):
         return reverse('movie_detail', kwargs={'pk': self.id})
-    
+
+
+class Viewing(models.Model):
+    date = models.DateField(
+        default=datetime.date.today()
+        )
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
