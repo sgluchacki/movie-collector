@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.timezone import now
 import datetime
 
 
@@ -18,6 +19,6 @@ class Movie(models.Model):
 
 class Viewing(models.Model):
     date = models.DateField(
-        default=datetime.date.today()
+        default=now
         )
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
