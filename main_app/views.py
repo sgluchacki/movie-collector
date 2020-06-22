@@ -35,3 +35,8 @@ class MovieCreate(CreateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
+    
+    
+class MovieUpdate(UpdateView):
+    model = Movie
+    fields = '__all__'
