@@ -32,6 +32,11 @@ class MovieDetail(DetailView):
 class MovieCreate(CreateView):
     model = Movie
     fields = '__all__'
+    
+    def get_context_data(self):
+        context = super().get_context_data()
+        context['title'] = 'Add A Movie'
+        return context
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -41,7 +46,17 @@ class MovieUpdate(UpdateView):
     model = Movie
     fields = '__all__'
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Update ' + context['movie'].title 
+        return context
+    
     
 class MovieDelete(DeleteView):
     model = Movie
     success_url = '/movies/'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Delete ' + context['movie'].title 
+        return context
