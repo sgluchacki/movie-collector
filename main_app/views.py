@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
-from .models import Movie
 from django.views.generic import ListView, DetailView
 from django.views.generic import CreateView, UpdateView, DeleteView
+from .models import Movie
+from .forms import ViewingForm
 
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html', {'title': 'Movies Home'})
 
-# MOVIES
+
+# ---------------------------MOVIES-------------------------------- #
 
 class MovieList(ListView):
     model = Movie
@@ -60,3 +62,15 @@ class MovieDelete(DeleteView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Delete ' + context['movie'].title 
         return context
+    
+    
+# ---------------------------VIEWINGS-------------------------------- #
+
+
+def add_viewing(request, movie_id):
+    form = ViewingForm(request.POST)
+    if form.is_valid():
+        new_viewing = form.save(commit=False)
+        new_viewing.movie_id = movie_id
+        new_viewing.save()
+    return redirect('movie_detail', movie_id=movie_id)
