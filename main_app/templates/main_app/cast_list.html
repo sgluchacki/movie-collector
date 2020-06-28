@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>All Movies</h1>
+
+{% for cast_member in object_list %}
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ cast_member.name }}</span>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}

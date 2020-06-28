@@ -18,7 +18,7 @@
   </div>
 
   <div class="col s6">
-    <form action="{% url 'add_viewing' cat.id %}" method="post">
+    <form action="{% url 'add_viewing' movie.id %}" method="post">
       {% csrf_token %}
       {{ viewing_form.as_p }}
       <input type="submit" class="btn" value="Add Viewing">
@@ -31,7 +31,7 @@
       <tbody>
         {% for viewing in movie.viewing_set.all %}
           <tr>
-            <td>{{feeding.date}}</td>
+            <td>{{viewing.date}}</td>
           </tr>
         {% endfor %}
       </tbody>

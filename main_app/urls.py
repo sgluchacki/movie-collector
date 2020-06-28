@@ -9,4 +9,6 @@ urlpatterns = [
     path('movies/<int:pk>/update/', views.MovieUpdate.as_view(), name='movie_update'),
     path('movies/<int:pk>/delete/', views.MovieDelete.as_view(), name='movie_delete'),
     path('movies/<int:pk>/add_viewing/', views.add_viewing, name='add_viewing'),
+    path('cast/', views.CastList.as_view(), name='cast_list'),
+    path('cast/create', views.CastCreate.as_view(), name='cast_create'),
 ]
